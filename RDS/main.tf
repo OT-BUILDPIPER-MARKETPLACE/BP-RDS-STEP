@@ -1,3 +1,8 @@
+locals {
+  database_subnet_ids = var.database_subnet_ids
+  vpc_id              = var.vpc_id
+}
+
 module "mysql" {
   source                   = "OT-CLOUD-KIT/rds-mssql/aws"
   version                  = "0.0.1"
