@@ -69,5 +69,5 @@ variable "vpc_id" {
 variable "db_whitelist_cidr" {
   description = "CIDR block to whitelist for database access"
   type        = string
-  default     = "10.0.0.0/18"
+  default     = ""
 }
