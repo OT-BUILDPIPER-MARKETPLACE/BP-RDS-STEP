@@ -5,7 +5,7 @@ variable "engine_name" {
 }
 
 variable "sg_name" {
-  description = "name of db engine"
+  description = "name of rds security group"
   type        = string
   default     = "rds_sg"
 }
