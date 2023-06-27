@@ -1,8 +1,8 @@
-# BP-ELASTICACHE-STEP
-I'll steup ELASTICACHE using opstree tf module
+# BP-TF-RDS-STEP
+I'll steup RDS using opstree tf module
 
 ## Setup
-* Clone the code available at [BP-ELASTICACHE-STEP](https://github.com/OT-BUILDPIPER-MARKETPLACE/BP-ELASTICACHE-STEP)
+* Clone the code available at [BP-TF-RDS-STEP](https://github.com/OT-BUILDPIPER-MARKETPLACE/BP-TF-RDS-STEP)
 * Build the docker image
 
 ```

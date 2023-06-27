@@ -1,66 +1,73 @@
-variable "engine_name" {
-  description = "name of db engine"
-  type        = string
-  default     = "mysql"
+variable "database_subnet_ids" {
+  description = "List of subnet IDs for the RDS database"
+  type        = list(string)
+  default     = [""]
 }
 
-variable "sg_name" {
-  description = "name of rds security group"
-  type        = string
-  default     = "rds_sg"
-}
-
-variable "db_whitelist_cidr" {
-default = ["10.0.0.0/18"]
-}
-
-variable "identifier" {
-  description = "name of db identifier"
-  type        = string
-  default     = "mysql-server"
-}
-
-variable "db_name" {
-  description = "Enter the name of the database to be created inside DB Instance"
-  type        = string
-  default     = null
-}
 variable "username" {
-  description = "username"
+  description = "Username for the RDS database"
   type        = string
   default     = "admin"
 }
 
 variable "password" {
-  description = "Enter the password"
+  description = "Password for the RDS database"
   type        = string
   default     = "Opstree#12345"
 }
 
+variable "engine_name" {
+  description = "Name of the database engine"
+  type        = string
+  default     = "mysql"
+}
+
+variable "identifier" {
+  description = "Identifier for the RDS instance"
+  type        = string
+  default     = "mysql-server"
+}
 
 variable "instance_class" {
-  description = "type of instance"
+  description = "Instance class for the RDS instance"
   type        = string
   default     = "db.t3.small"
-}
 
+}
 
 variable "allocated_storage" {
-  description = "storage size"
+  description = "Allocated storage for the RDS instance"
   type        = number
   default     = 20
+
 }
 
-
-variable "database_subnet_ids" {
-  description = "ids of database subnets"
-  type        = list(string)
-  default     = null
+variable "enable_whitelist_ip" {
+  description = "Enable whitelisting of IP addresses in the security group"
+  type        = bool
+  default     = true
 }
 
-variable "database_security_groups" {
-  description = "security group of database"
-  type        = list(any)
-  default     = []
+variable "enable_source_security_group_entry" {
+  description = "Enable allowing traffic from the source security group in the security group"
+  type        = bool
+  default     = false
 }
 
+variable "rds_sg_name" {
+  description = "Name of the RDS security group"
+  type        = string
+  default     = "rds_sq"
+}
+
+variable "vpc_id" {
+  description = "ID of the VPC where the RDS security group will be created"
+  type        = string
+  default     = ""
+}
+
+variable "db_whitelist_cidr" {
+  description = "CIDR block to whitelist for database access"
+  type        = string
+  default     = "10.0.0.0/18"
+}
