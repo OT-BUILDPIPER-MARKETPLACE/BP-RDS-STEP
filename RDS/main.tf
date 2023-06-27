@@ -6,7 +6,7 @@ module "mysql" {
   password                 = var.password
   engine_name = var.engine_name
   identifier   = var.identifier
-   instance_class           = var.instance_class
+  instance_class           = var.instance_class
   allocated_storage        = var.allocated_storage
 
 database_security_groups = [module.dev_rds_sg.sg_id]
