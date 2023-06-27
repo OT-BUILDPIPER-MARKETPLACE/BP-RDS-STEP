@@ -4,8 +4,14 @@ variable "engine_name" {
   default     = "mysql"
 }
 
+variable "sg_name" {
+  description = "name of db engine"
+  type        = string
+  default     = "rds_sg"
+}
+
 variable "db_whitelist_cidr" {
-default = "10.0.0.0/18"
+default = ["10.0.0.0/18"]
 }
 
 variable "identifier" {
