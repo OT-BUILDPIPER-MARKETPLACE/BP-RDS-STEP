@@ -1,3 +1,8 @@
+variable "region" {
+  type        = string
+  description = "Region where resource will be created."
+}
+
 variable "database_subnet_ids" {
   description = "List of subnet IDs for the RDS database"
   type        = list(string)
