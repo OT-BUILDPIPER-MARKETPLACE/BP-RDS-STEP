@@ -6,7 +6,6 @@ variable "region" {
 variable "database_subnet_ids" {
   description = "List of subnet IDs for the RDS database"
   type        = list(string)
-  default     = [""]
 }
 
 variable "username" {
@@ -68,7 +67,6 @@ variable "rds_sg_name" {
 variable "vpc_id" {
   description = "ID of the VPC where the RDS security group will be created"
   type        = string
-  default     = ""
 }
 
 variable "db_whitelist_cidr" {
