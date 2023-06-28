@@ -6,7 +6,7 @@ locals {
 module "mysql" {
   source                   = "OT-CLOUD-KIT/rds-mssql/aws"
   version                  = "0.0.1"
-  database_subnet_ids      = var.database_subnet_ids
+  database_subnet_ids      = local.database_subnet_ids
   username                 = var.username
   password                 = var.password
   engine_name              = var.engine_name
@@ -22,7 +22,7 @@ module "rds_sg" {
   enable_whitelist_ip                = var.enable_whitelist_ip
   enable_source_security_group_entry = var.enable_source_security_group_entry
   name_sg                            = var.rds_sg_name
-  vpc_id                             = var.vpc_id
+  vpc_id                             = local.vpc_id
   ingress_rule = {
     rules = {
       rule_list = [
