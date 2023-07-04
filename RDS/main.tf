@@ -1,6 +1,7 @@
 locals {
   database_subnet_ids = var.database_subnet_ids
   vpc_id              = var.vpc_id
+  db_whitelist_cidr   = var.db_whitelist_cidr
 }
 
 module "mysql" {
@@ -31,7 +32,7 @@ module "rds_sg" {
           from_port    = 3306
           to_port      = 3306
           protocol     = "tcp"
-          cidr         = ["${var.db_whitelist_cidr}"]
+          cidr         = [ local.db_whitelist_cidr]
           source_SG_ID = []
         }
       ]
