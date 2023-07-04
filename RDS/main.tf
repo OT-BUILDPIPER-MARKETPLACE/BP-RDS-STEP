@@ -15,6 +15,7 @@ module "mysql" {
   instance_class           = var.instance_class
   allocated_storage        = var.allocated_storage
   database_security_groups = [module.rds_sg.sg_id]
+  subnet_group_name        = var.subnet_group_name
 }
 
 module "rds_sg" {
