@@ -74,3 +74,8 @@ variable "db_whitelist_cidr" {
   type        = string
   default     = ""
 }
+variable "subnet_group_name" {
+  description = "subnet group name"
+  type        = string
+  default     = "db_sn_1"
+}
