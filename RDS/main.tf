@@ -5,8 +5,8 @@ locals {
 }
 
 module "mysql" {
-  source                   = "OT-CLOUD-KIT/rds-mssql/aws"
-  version                  = "0.0.1"
+  source = "../terraform-aws-rds-mssql"
+  # version                  = "0.0.1"
   database_subnet_ids      = local.database_subnet_ids
   username                 = var.username
   password                 = var.password
@@ -16,7 +16,21 @@ module "mysql" {
   allocated_storage        = var.allocated_storage
   database_security_groups = [module.rds_sg.sg_id]
   subnet_group_name        = var.subnet_group_name
+
+  create_high_cpu_alarm                     = var.create_high_cpu_alarm
+  prefix                                    = var.prefix
+  db_instance_id                            = module.mysql.rds_instance_id
+  evaluation_period                         = var.evaluation_period
+  statistic_period                          = var.statistic_period
+  cpu_utilization_too_high_threshold        = var.cpu_utilization_too_high_threshold
+  create_low_disk_space_alarm               = var.create_low_disk_space_alarm
+  disk_free_storage_space_too_low_threshold = var.disk_free_storage_space_too_low_threshold
+  create_low_memory_alarm                   = var.create_low_memory_alarm
+  memory_freeable_too_low_threshold         = var.memory_freeable_too_low_threshold
+  create_anomaly_alarm                      = var.create_anomaly_alarm
+
 }
+
 
 module "rds_sg" {
   source                             = "OT-CLOUD-KIT/security-groups/aws"
@@ -33,7 +47,7 @@ module "rds_sg" {
           from_port    = 3306
           to_port      = 3306
           protocol     = "tcp"
-          cidr         = [ local.db_whitelist_cidr]
+          cidr         = [local.db_whitelist_cidr]
           source_SG_ID = []
         }
       ]
