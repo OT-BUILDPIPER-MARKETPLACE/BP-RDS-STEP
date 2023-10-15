@@ -5,8 +5,8 @@ locals {
 }
 
 module "mysql" {
-  source = "../terraform-aws-rds-mssql"
-  # version                  = "0.0.1"
+  source = "OT-CLOUD-KIT/rds-mssql/aws"
+  version                  = "0.0.2"
   database_subnet_ids      = local.database_subnet_ids
   username                 = var.username
   password                 = var.password
