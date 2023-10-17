@@ -5,8 +5,7 @@ locals {
 }
 
 module "mysql" {
-  source = "OT-CLOUD-KIT/rds-mssql/aws"
-  version                  = "0.0.2"
+  source                   = "git::https://github.com/OT-CLOUD-KIT/terraform-aws-rds-mssql.git?ref=rds-myfojo"
   database_subnet_ids      = local.database_subnet_ids
   username                 = var.username
   password                 = var.password
