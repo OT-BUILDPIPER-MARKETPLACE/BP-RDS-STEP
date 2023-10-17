@@ -88,7 +88,7 @@ variable "create_high_cpu_alarm" {
   description = "Whether or not to create the high cpu alarm.  Default is to create it (for backwards compatible support)"
 }
 
-variable "prefix" {
+variable "env" {
   type        = string
   default     = ""
   description = "Alarm Name Prefix"
