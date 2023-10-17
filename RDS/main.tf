@@ -18,7 +18,7 @@ module "mysql" {
   subnet_group_name        = var.subnet_group_name
 
   create_high_cpu_alarm                     = var.create_high_cpu_alarm
-  prefix                                    = var.prefix
+  env                                       = var.env
   db_instance_id                            = module.mysql.rds_instance_id
   evaluation_period                         = var.evaluation_period
   statistic_period                          = var.statistic_period
